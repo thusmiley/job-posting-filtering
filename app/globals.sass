@@ -1,0 +1,50 @@
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+// base 
+@layer base 
+    *
+        box-sizing: border-box
+        margin: 0
+        padding: 0
+    
+    body
+        font-synthesis: none
+        text-rendering: optimizeLegibility
+        scroll-behavior: smooth
+        @apply font-leagueSpartan bg-lightGrayishCyan
+
+    input,
+    textarea,
+    button,
+    select,
+    a 
+        -webkit-tap-highlight-color: transparent
+
+// components
+@layer components
+    input[type='text']
+        @apply border-none outline-none bg-white 
+    input[type='text']:placeholder
+        @apply text-white
+
+// utitlities
+@layer utilities
+    .copyIcon:hover path
+        @apply  duration-200
+
+    .arrowIcon path
+        @apply fill-green
+
+    .header-bg
+        background: #5CA5A5 url('../public/images/bg-header-mobile.svg') no-repeat
+        background-size: cover
+        background-position: top center
+        @screen md
+            background: #5CA5A5 url('../public/images/bg-header-desktop.svg') no-repeat
+            background-size: cover
+            background-position: top center
+
+    .box-shadow
+        box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15)
