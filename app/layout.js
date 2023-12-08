@@ -8,9 +8,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en-US">
       <head>
-        <link rel="icon" type="image/svg" href="/images/eyecam-co.svg" />
+        <link rel="icon" type="image/svg" href="/images/faceit.svg" />
         <meta property="og:image" content="/images/desktop-preview.jpg" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />

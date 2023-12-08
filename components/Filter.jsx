@@ -1,42 +1,30 @@
 import Image from "next/image";
 import closeIcon from "../public/images/icon-remove.svg";
 
-const Filter = () => {
+const Filter = ({ filterTags, setFilterTags }) => {
+  const RemoveAllFilters = () => {
+    setFilterTags([]);
+  };
+
   return (
-    <section className="p-5 bg-white rounded-[5px] flex justify-between items-center text-[13px] leading-[24px] tracking-[-.1px] font-bold box-shadow mb-10">
+    <section
+      className={`${
+        filterTags.length === 0 ? "hidden slide-out" : "flex slide-in"
+      } p-5 bg-white rounded-[5px] justify-between items-center text-[13px] leading-[24px] tracking-[-.1px] font-bold box-shadow mb-[56px] md:py-5 md:px-10 md:mb-10`}
+    >
       <div className="flex flex-wrap gap-4">
-        <div className="bg-darkCyan/10 rounded-l-[5px] inline-flex">
-          <p className="py-1 px-2 text-darkCyan text-[13px] leading-[24px] tracking-[-.1px]">Frontend</p>
-          <div className="bg-darkCyan w-8 h-8 rounded-r-[5px] grid place-content-center">
-            <Image src={closeIcon} className="w-[14px] h-[14px]" alt="" />
+        {filterTags.map((tag, index) => (
+          <div key={index} className="bg-darkCyan/10 rounded-[5px] inline-flex">
+            <p className="py-1 px-2 text-darkCyan text-[13px] leading-[24px] tracking-[-.1px]">{tag}</p>
+            <div className="bg-darkCyan w-8 h-8 rounded-r-[5px] grid place-content-center hover:bg-veryDarkGrayishCyan cursor-pointer transition-colors duration-200 ease-in">
+              <Image src={closeIcon} className="w-[14px] h-[14px]" alt={`remove filter ${tag}`} />
+            </div>
           </div>
-        </div>
-        <div className="bg-darkCyan/10 rounded-l-[5px] inline-flex">
-          <p className="py-1 px-2 text-darkCyan text-[13px] leading-[24px] tracking-[-.1px]">CSS</p>
-          <div className="bg-darkCyan w-8 h-8 rounded-r-[5px] grid place-content-center">
-            <Image src={closeIcon} className="w-[14px] h-[14px]" alt="" />
-          </div>
-        </div>
-        <div className="bg-darkCyan/10 rounded-l-[5px] inline-flex">
-          <p className="py-1 px-2 text-darkCyan text-[13px] leading-[24px] tracking-[-.1px]">JavaScript</p>
-          <div className="bg-darkCyan w-8 h-8 rounded-r-[5px] grid place-content-center">
-            <Image src={closeIcon} className="w-[14px] h-[14px]" alt="" />
-          </div>
-        </div>
-        <div className="bg-darkCyan/10 rounded-l-[5px] inline-flex">
-          <p className="py-1 px-2 text-darkCyan text-[13px] leading-[24px] tracking-[-.1px]">Senior</p>
-          <div className="bg-darkCyan w-8 h-8 rounded-r-[5px] grid place-content-center">
-            <Image src={closeIcon} className="w-[14px] h-[14px]" alt="" />
-          </div>
-        </div>
-        <div className="bg-darkCyan/10 rounded-l-[5px] inline-flex">
-          <p className="py-1 px-2 text-darkCyan text-[13px] leading-[24px] tracking-[-.1px]">HTML</p>
-          <div className="bg-darkCyan w-8 h-8 rounded-r-[5px] grid place-content-center">
-            <Image src={closeIcon} className="w-[14px] h-[14px]" alt="" />
-          </div>
-        </div>
+        ))}
       </div>
-      <p className="text-darkGrayishCyan ml-4">Clear</p>
+      <p className="text-darkGrayishCyan ml-4 cursor-pointer hover:text-darkCyan hover:underline transition-colors duration-200 ease-in" onClick={RemoveAllFilters}>
+        Clear
+      </p>
     </section>
   );
 };
