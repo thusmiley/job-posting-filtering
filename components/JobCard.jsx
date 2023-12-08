@@ -9,6 +9,8 @@ const JobCard = (props) => {
     addFilter,
   } = props;
 
+  const [isShowed, setIsShowed] = useState(true);
+
   const combineTags = () => {
     const tags = [role, level];
     if (languages) {
@@ -24,8 +26,8 @@ const JobCard = (props) => {
 
   return (
     <div
-      className={`${
-        featured ? "border-l-[5px] border-darkCyan" : ""
+      className={`${featured ? "border-l-[5px] border-darkCyan" : ""} ${
+        isShowed ? "block slide-in" : "hidden"
       } p-6 bg-white rounded-[5px] box-shadow mt-10 md:flex md:justify-between md:items-center md:py-8 md:px-10 md:mt-6`}
     >
       <div className="relative border-b-[1px] border-[#B7C4C4] w-full pb-4 md:flex md:items-center md:pb-0 md:border-none lg:w-auto">

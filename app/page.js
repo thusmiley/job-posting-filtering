@@ -17,12 +17,7 @@ export default function Home() {
     const addedFilter = e.target.value;
     if (!filterTags.includes(addedFilter)) {
       setFilterTags([...filterTags, addedFilter]);
-    } else {
-      const index = filteredJobs.indexOf(job);
-      console.log(index);
-      setFilteredJobs(filteredJobs.splice(index, 1));
-      console.log(filteredJobs);
-    }
+    } 
   }
 
   return (
