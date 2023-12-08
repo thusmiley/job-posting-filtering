@@ -23,6 +23,7 @@ const Filter = ({ filterTags, setFilterTags }) => {
                 alt={`remove filter ${tag}`}
                 onClick={() => {
                   setFilterTags(filterTags.filter((item) => item !== tag));
+                  console.log(filterTags);
                 }}
               />
             </div>

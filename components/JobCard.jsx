@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 
 const JobCard = (props) => {
   const {
@@ -9,9 +8,6 @@ const JobCard = (props) => {
     addFilter,
   } = props;
 
-  const [isShowed, setIsShowed] = useState(true);
-
-  const combineTags = () => {
     const tags = [role, level];
     if (languages) {
       tags.push(...languages);
@@ -19,16 +15,10 @@ const JobCard = (props) => {
     if (tools) {
       tags.push(...tools);
     }
-    return tags;
-  };
-
-  const jobTags = combineTags();
 
   return (
     <div
-      className={`${featured ? "border-l-[5px] border-darkCyan" : ""} ${
-        isShowed ? "block slide-in" : "hidden"
-      } p-6 bg-white rounded-[5px] box-shadow mt-10 md:flex md:justify-between md:items-center md:py-8 md:px-10 md:mt-6`}
+      className={`${featured ? "border-l-[5px] border-darkCyan" : ""} p-6 bg-white rounded-[5px] box-shadow slide-in mt-10 md:flex md:justify-between md:items-center md:py-8 md:px-10 md:mt-6`}
     >
       <div className="relative border-b-[1px] border-[#B7C4C4] w-full pb-4 md:flex md:items-center md:pb-0 md:border-none lg:w-auto">
         <Image src={logo} alt={`logo ${company}`} width={48} height={48} className="w-[48px] h-[48px] absolute -top-[60px] md:relative md:top-0 md:w-[88px] md:h-[88px] md:mr-6" />
@@ -47,7 +37,7 @@ const JobCard = (props) => {
         </div>
       </div>
       <div className="pt-4 flex flex-wrap gap-4 md:ml-[20px] md:pt-0">
-        {jobTags.map((tag, index) => (
+        {tags.map((tag, index) => (
           <button
             key={index}
             type="button"
