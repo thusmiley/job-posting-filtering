@@ -17,8 +17,8 @@ Job Listing with Filtering App
 
 ### Links
 
-- Git URL: 
-- Live Site URL: 
+- Git URL: https://github.com/thusmiley/job-posting-filtering.git
+- Live Site URL: https://job-posting-filtering.vercel.app/
 
 ### Built with
 
